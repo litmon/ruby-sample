@@ -3,8 +3,7 @@ require 'nokogiri'
 
 puts 'Input URL you want to scraping and Enter.'
 print '> '
-# url = STDIN.gets
-url = "http://life-is-tech.com"
+url = STDIN.gets
 
 puts 'Site connecting....'
 
@@ -24,7 +23,7 @@ while true
   selector = STDIN.gets.chomp()
 
   puts "---Node Information---"
-  puts "Node Inner Text: #{doc.css(selector).inner_text}"
+  puts "Node: #{doc.css(selector)}"
   puts "Node length: #{doc.css(selector).length}"
   puts "--- ---"
 end
