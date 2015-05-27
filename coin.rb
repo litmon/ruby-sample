@@ -1,3 +1,4 @@
+require "ap"
 # 入力
 # n m
 # a_0 a_1 ... a_m
@@ -8,16 +9,22 @@
 
 MAX_COIN = 100000000
 
-n, m = gets.split("\s").map{|i| i.to_i}
-a = (1..m).map{gets.to_i}
+def ints
+  gets.split("\s").map{|i| i.to_i}
+end
 
-result = Array.new(n, MAX_COIN)
+n, m = ints
+a = ints
+
+result = Array.new(n, MAX_COIN).unshift(0)
 a.each do |a_i|
-  result = result.each_with_index.map do |r_i|
-    if r_i[0] < a_i
-      r_i[1]
+  result.map!.each_with_index do |r_i, i|
+    if i < a_i
+      r_i
     else
-      [r_i[1], result[r_i[0] - a_i] + 1].min
+      [r_i, result[i - a_i] + 1].min
     end
   end
 end
+
+puts result[n]
