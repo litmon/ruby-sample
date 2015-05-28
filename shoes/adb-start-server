@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+exec "#{exec "find / -name platform-tools 2>/dev/null"}/adb start-server"
