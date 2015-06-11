@@ -1,3 +1,25 @@
+class A
+  class B
+    def print
+      puts "#{self.class}"
+    end
+  end
+
+  def print
+    puts "#{self.class}"
+  end
+
+  def self.init_b
+    B.new
+  end
+end
+
+puts A.new.print
+puts A::B.new.print
+# puts B.new.print => uninitialized B
+puts A.init_b
+
+
 class Circle
   attr_accessor :x, :y, :r
 
@@ -16,7 +38,7 @@ class Circle
   end
 
   def outside?(x, y)
-    distance(x, y) => @r ** 2
+    distance(x, y) >= @r ** 2
   end
 end
 
