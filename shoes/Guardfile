@@ -1,3 +1,0 @@
-guard "shell" do
-  watch(/(.*)\.rb$/){|m| `~/Applications/Shoes.app/Contents/MacOS/shoes #{m[0]}`}
-end
